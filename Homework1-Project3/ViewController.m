@@ -9,10 +9,30 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *inputBox;
 
 @end
 
 @implementation ViewController
+- (IBAction)buttonClicked:(id)sender {
+    
+    NSString *text;
+   text=self.inputBox.text;
+    
+    NSInteger len = text.length;
+    NSMutableString *reverseName = [[NSMutableString alloc] initWithCapacity:len];
+    
+    for (NSInteger i =len-1; i>=0 ; i--)
+    {
+        [reverseName appendString:[NSString stringWithFormat:@"%c",[text characterAtIndex:i]]];
+    
+        if (i ==0)
+        {
+    NSLog(@"%@", reverseName);
+        }
+    }
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
